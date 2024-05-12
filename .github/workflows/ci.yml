@@ -1,20 +1,23 @@
-name: CI 
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
-      - name: Build and Test  
-        run: |
-          # Add your test commands here
-          if [ -f "index.html"]; then 
-            echo "index.html exists. Build and test successful!"
-          else 
-            echo "Error: index.html not found. Build and test failed."
-            exit 1
-          fi 
+    - uses: actions/checkout@v2
+    - name: Build and Test
+      run: |
+        # Build and test commands for your project
+        # Since it's an HTML project, we'll just check if index.html exists
+        if [ -f "index.html" ]; then
+          echo "Index.html exists. Build and test successful!"
+          exit 0
+        else
+          echo "Error: Index.html not found. Build and test failed."
+          exit 1
+        fi
+
